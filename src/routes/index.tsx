@@ -3,22 +3,22 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { CalendarDays, LayoutDashboard, ListTree, Repeat } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
-import { TaskNestLogo } from "@/components/bits";
+import { NextOnListLogo } from "@/components/bits";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TaskNest — Nested tasks, real timelines" },
+      { title: "NextOnList — Plan what's next, real timelines" },
       {
         name: "description",
         content:
-          "TaskNest keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
+          "NextOnList keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
       },
-      { property: "og:title", content: "TaskNest — Nested tasks, real timelines" },
+      { property: "og:title", content: "NextOnList — Plan what's next, real timelines" },
       {
         property: "og:description",
         content:
-          "TaskNest keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
+          "NextOnList keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
       },
     ],
   }),
@@ -46,9 +46,9 @@ function Landing() {
       <header className="mx-auto flex max-w-5xl items-center justify-between px-6 py-6">
         <span className="flex items-center gap-2.5">
           <span className="grid size-9 place-items-center rounded-xl gradient-primary text-primary-foreground shadow-sm">
-            <TaskNestLogo className="size-5" />
+            <NextOnListLogo className="size-5" />
           </span>
-          <span className="font-display text-lg font-extrabold tracking-tight">TaskNest</span>
+          <span className="font-display text-lg font-extrabold tracking-tight">NextOnList</span>
         </span>
         <Button asChild variant="outline" className="cursor-pointer">
           <Link to="/auth">Sign in</Link>

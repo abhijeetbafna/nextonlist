@@ -7,9 +7,9 @@ import { useTaskMutations, useTasks } from "@/lib/api";
 export const Route = createFileRoute("/_authenticated/trash")({
   head: () => ({
     meta: [
-      { title: "Trash — TaskNest" },
+      { title: "Trash — NextOnList" },
       { name: "description", content: "Restore recently deleted tasks or remove them permanently." },
-      { property: "og:title", content: "Trash — TaskNest" },
+      { property: "og:title", content: "Trash — NextOnList" },
       { property: "og:description", content: "Restore recently deleted tasks or remove them permanently." },
     ],
   }),

@@ -4,7 +4,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/_authenticated/labels")({
   head: () => ({
     meta: [
-      { title: "Labels & buckets — TaskNest" },
+      { title: "Labels & buckets — NextOnList" },
     ],
   }),
   component: LabelsPage,

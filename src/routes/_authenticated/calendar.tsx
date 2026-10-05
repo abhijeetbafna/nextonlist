@@ -5,9 +5,9 @@ import { CalendarView } from "@/components/calendar-view";
 export const Route = createFileRoute("/_authenticated/calendar")({
   head: () => ({
     meta: [
-      { title: "Calendar — TaskNest" },
+      { title: "Calendar — NextOnList" },
       { name: "description", content: "See tasks and deadlines laid out by month, week or day." },
-      { property: "og:title", content: "Calendar — TaskNest" },
+      { property: "og:title", content: "Calendar — NextOnList" },
       { property: "og:description", content: "See tasks and deadlines laid out by month, week or day." },
     ],
   }),

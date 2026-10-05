@@ -10,9 +10,9 @@ import { LABEL_COLORS } from "@/lib/types";
 export const Route = createFileRoute("/_authenticated/habits")({
   head: () => ({
     meta: [
-      { title: "Habits — TaskNest" },
+      { title: "Habits — NextOnList" },
       { name: "description", content: "Track daily habits with streaks and a 30-day check-in grid." },
-      { property: "og:title", content: "Habits — TaskNest" },
+      { property: "og:title", content: "Habits — NextOnList" },
       { property: "og:description", content: "Track daily habits with streaks and a 30-day check-in grid." },
     ],
   }),

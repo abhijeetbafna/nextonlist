@@ -74,20 +74,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "TaskNest — Nested tasks, real timelines" },
+      { title: "NextOnList — Plan what's next, real timelines" },
       {
         name: "description",
-        content: "TaskNest keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
+        content: "NextOnList keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
       },
-      { property: "og:title", content: "TaskNest — Nested tasks, real timelines" },
+      { property: "og:title", content: "NextOnList — Plan what's next, real timelines" },
       {
         property: "og:description",
-        content: "TaskNest keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
+        content: "NextOnList keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "TaskNest — Nested tasks, real timelines" },
-      { name: "twitter:description", content: "TaskNest keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went." },
+      { name: "twitter:title", content: "NextOnList — Plan what's next, real timelines" },
+      { name: "twitter:description", content: "NextOnList keeps big goals and their sub-tasks on one timeline, with buckets, a board, habits and a dashboard that shows where your week went." },
     ],
     links: [
       {

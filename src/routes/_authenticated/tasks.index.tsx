@@ -36,9 +36,9 @@ export const Route = createFileRoute("/_authenticated/tasks/")({
   }),
   head: () => ({
     meta: [
-      { title: "Tasks — TaskNest" },
+      { title: "Tasks — NextOnList" },
       { name: "description", content: "Filter, sort and nest your tasks and sub-tasks in one focused list." },
-      { property: "og:title", content: "Tasks — TaskNest" },
+      { property: "og:title", content: "Tasks — NextOnList" },
       { property: "og:description", content: "Filter, sort and nest your tasks and sub-tasks in one focused list." },
     ],
   }),

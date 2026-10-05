@@ -12,9 +12,9 @@ import { TaskRow } from "@/components/task-list";
 export const Route = createFileRoute("/_authenticated/tasks/$taskId")({
   head: () => ({
     meta: [
-      { title: "Task details — TaskNest" },
+      { title: "Task details — NextOnList" },
       { name: "description", content: "Inspect a task, its sub-tasks, timeline and attachments." },
-      { property: "og:title", content: "Task details — TaskNest" },
+      { property: "og:title", content: "Task details — NextOnList" },
       { property: "og:description", content: "Inspect a task, its sub-tasks, timeline and attachments." },
     ],
   }),

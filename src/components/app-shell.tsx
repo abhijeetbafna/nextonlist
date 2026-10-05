@@ -42,7 +42,7 @@ import {
   useProfile,
   useSession,
 } from "@/lib/api";
-import { TaskNestLogo } from "@/components/bits";
+import { NextOnListLogo } from "@/components/bits";
 import { QuickAdd } from "@/components/quick-add";
 
 const NAV = [
@@ -71,7 +71,7 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   const [collapsed, setCollapsed] = useState<boolean>(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("tasknest.sidebar_collapsed") === "true";
+      return localStorage.getItem("nextonlist.sidebar_collapsed") === "true" || localStorage.getItem("tasknest.sidebar_collapsed") === "true";
     }
     return false;
   });
@@ -79,7 +79,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const toggleCollapsed = () => {
     setCollapsed((prev) => {
       const next = !prev;
-      localStorage.setItem("tasknest.sidebar_collapsed", String(next));
+      localStorage.setItem("nextonlist.sidebar_collapsed", String(next));
       return next;
     });
   };
@@ -87,6 +87,7 @@ export function AppShell({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<"light" | "dark">(() => {
     if (typeof window !== "undefined") {
       return (
+        (localStorage.getItem("nextonlist.theme") as "light" | "dark") ||
         (localStorage.getItem("tasknest.theme") as "light" | "dark") ||
         (profile?.theme as "light" | "dark") ||
         (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light")
@@ -102,7 +103,7 @@ export function AppShell({ children }: { children: ReactNode }) {
     } else {
       root.classList.remove("dark");
     }
-    localStorage.setItem("tasknest.theme", theme);
+    localStorage.setItem("nextonlist.theme", theme);
   }, [theme]);
 
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
@@ -119,9 +120,9 @@ export function AppShell({ children }: { children: ReactNode }) {
       <div className={cn("flex items-center justify-between w-full px-1", collapsed && "flex-col gap-2.5 items-center justify-center px-0")}>
         <Link to="/dashboard" className="flex items-center gap-2.5 group">
           <span className="grid size-9 shrink-0 place-items-center rounded-xl gradient-primary text-primary-foreground shadow-sm group-hover:scale-105 transition-transform">
-            <TaskNestLogo className="size-5" />
+            <NextOnListLogo className="size-5" />
           </span>
-          {!collapsed && <span className="font-display text-lg font-extrabold tracking-tight truncate">TaskNest</span>}
+          {!collapsed && <span className="font-display text-lg font-extrabold tracking-tight truncate">NextOnList</span>}
         </Link>
 
         <button

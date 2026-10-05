@@ -102,7 +102,9 @@ export function withinHours(iso: string | null, hours: number) {
 }
 
 export function formatRange(start: string | null, end: string | null) {
-  const is24h = typeof window !== "undefined" && localStorage.getItem("tasknest.time_format") === "24h";
+  const is24h =
+    typeof window !== "undefined" &&
+    (localStorage.getItem("nextonlist.time_format") === "24h" || localStorage.getItem("tasknest.time_format") === "24h");
   const fmt = (d: string) =>
     new Date(d).toLocaleString(undefined, {
       day: "numeric",

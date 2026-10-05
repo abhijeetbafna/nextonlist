@@ -56,10 +56,10 @@ export const Route = createFileRoute("/_authenticated/settings")({
   }),
   head: () => ({
     meta: [
-      { title: "Settings — TaskNest" },
-      { name: "description", content: "Customise your profile, appearance, time format, buckets and labels in TaskNest." },
-      { property: "og:title", content: "Settings — TaskNest" },
-      { property: "og:description", content: "Customise your profile, appearance, time format, buckets and labels in TaskNest." },
+      { title: "Settings — NextOnList" },
+      { name: "description", content: "Customise your profile, appearance, time format, buckets and labels in NextOnList." },
+      { property: "og:title", content: "Settings — NextOnList" },
+      { property: "og:description", content: "Customise your profile, appearance, time format, buckets and labels in NextOnList." },
     ],
   }),
   component: SettingsPage,
@@ -183,7 +183,7 @@ function SettingsPage() {
     setUrgencyHours(String(profile.urgency_hours ?? 24));
 
     if (typeof window !== "undefined") {
-      const savedFmt = localStorage.getItem("tasknest.time_format") as "12h" | "24h";
+      const savedFmt = (localStorage.getItem("nextonlist.time_format") || localStorage.getItem("tasknest.time_format")) as "12h" | "24h";
       if (savedFmt) setTimeFormat(savedFmt);
     }
   }, [profile]);
@@ -206,8 +206,8 @@ function SettingsPage() {
   async function handleSaveProfile() {
     try {
       if (typeof window !== "undefined") {
-        localStorage.setItem("tasknest.time_format", timeFormat);
-        localStorage.setItem("tasknest.timezone", timezone);
+        localStorage.setItem("nextonlist.time_format", timeFormat);
+        localStorage.setItem("nextonlist.timezone", timezone);
       }
       await updateProfile.mutateAsync({
         display_name: displayName.trim() || null,

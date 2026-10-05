@@ -5,15 +5,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
-import { GoogleLogo, TaskNestLogo } from "@/components/bits";
+import { GoogleLogo, NextOnListLogo } from "@/components/bits";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
     meta: [
-      { title: "Sign in — TaskNest" },
-      { name: "description", content: "Sign in to TaskNest to plan tasks, sub-tasks and habits in one calm workspace." },
-      { property: "og:title", content: "Sign in — TaskNest" },
-      { property: "og:description", content: "Sign in to TaskNest to plan tasks, sub-tasks and habits in one calm workspace." },
+      { title: "Sign in — NextOnList" },
+      { name: "description", content: "Sign in to NextOnList to plan tasks, sub-tasks and habits in one calm workspace." },
+      { property: "og:title", content: "Sign in — NextOnList" },
+      { property: "og:description", content: "Sign in to NextOnList to plan tasks, sub-tasks and habits in one calm workspace." },
     ],
   }),
   component: AuthPage,
@@ -105,7 +105,7 @@ function AuthPage() {
         }
 
         if (data.session) {
-          toast.success("Account created — welcome to TaskNest!");
+          toast.success("Account created — welcome to NextOnList!");
           navigate({ to: "/dashboard", replace: true });
           return;
         }
@@ -116,7 +116,7 @@ function AuthPage() {
         });
 
         if (!signInErr && signInData.session) {
-          toast.success("Account created — welcome to TaskNest!");
+          toast.success("Account created — welcome to NextOnList!");
           navigate({ to: "/dashboard", replace: true });
           return;
         }
@@ -171,8 +171,8 @@ function AuthPage() {
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="hidden flex-col justify-between gradient-primary p-12 text-primary-foreground lg:flex">
         <div className="flex items-center gap-2.5">
-          <TaskNestLogo className="size-6 text-primary-foreground" />
-          <span className="font-display text-xl font-extrabold">TaskNest</span>
+          <NextOnListLogo className="size-6 text-primary-foreground" />
+          <span className="font-display text-xl font-extrabold">NextOnList</span>
         </div>
         <div>
           <h1 className="font-display text-4xl font-extrabold leading-tight">

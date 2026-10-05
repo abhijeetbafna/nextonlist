@@ -1,6 +1,6 @@
-# TaskNest 🪹
+# NextOnList 📋
 
-TaskNest is a modern, high-performance task management application designed for deep work, real-time planning, and habit tracking.
+NextOnList is a modern, high-performance task management application designed for deep work, real-time planning, and habit tracking.
 
 Built with React 19, Vite, TanStack Router & Query, Tailwind CSS, and Supabase.
 
@@ -40,8 +40,8 @@ Built with React 19, Vite, TanStack Router & Query, Tailwind CSS, and Supabase.
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/abhijeetbafna/chrono-task-nest.git
-   cd chrono-task-nest
+   git clone https://github.com/abhijeetbafna/nextonlist.git
+   cd nextonlist
    ```
 
 2. **Install dependencies**:
@@ -66,4 +66,4 @@ Built with React 19, Vite, TanStack Router & Query, Tailwind CSS, and Supabase.
 
 ## 📜 License
 
-MIT License. Designed & Developed for TaskNest.
+MIT License. Designed & Developed for NextOnList.

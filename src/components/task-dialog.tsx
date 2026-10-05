@@ -641,7 +641,9 @@ export function TimelineBar({ task, children }: { task: Task; children: Task[] }
   if (!s || !e || e <= s) return null;
   const span = Math.max(1, e - s);
 
-  const is24h = typeof window !== "undefined" && localStorage.getItem("tasknest.time_format") === "24h";
+  const is24h =
+    typeof window !== "undefined" &&
+    (localStorage.getItem("nextonlist.time_format") === "24h" || localStorage.getItem("tasknest.time_format") === "24h");
 
   const formatTimeStr = (iso: string | null) =>
     iso

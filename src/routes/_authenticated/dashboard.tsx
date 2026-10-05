@@ -25,9 +25,9 @@ import { SectionHeading } from "@/components/bits";
 export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard — TaskNest" },
+      { title: "Dashboard — NextOnList" },
       { name: "description", content: "See completion rates, priority mix and workload across the week, month and year." },
-      { property: "og:title", content: "Dashboard — TaskNest" },
+      { property: "og:title", content: "Dashboard — NextOnList" },
       { property: "og:description", content: "See completion rates, priority mix and workload across the week, month and year." },
     ],
   }),

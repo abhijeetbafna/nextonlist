@@ -9,10 +9,10 @@ import { KanbanBoard } from "@/components/kanban-board";
 export const Route = createFileRoute("/_authenticated/board")({
   head: () => ({
     meta: [
-      { title: "Board — TaskNest" },
-      { name: "description", content: "Drag tasks between To Do, In Progress and Done on the TaskNest board." },
-      { property: "og:title", content: "Board — TaskNest" },
-      { property: "og:description", content: "Drag tasks between To Do, In Progress and Done on the TaskNest board." },
+      { title: "Board — NextOnList" },
+      { name: "description", content: "Drag tasks between To Do, In Progress and Done on the NextOnList board." },
+      { property: "og:title", content: "Board — NextOnList" },
+      { property: "og:description", content: "Drag tasks between To Do, In Progress and Done on the NextOnList board." },
     ],
   }),
   component: BoardPage,

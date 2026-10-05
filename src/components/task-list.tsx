@@ -28,7 +28,7 @@ import type { Task } from "@/lib/types";
 import { formatRange, isOverdue } from "@/lib/task-utils";
 import { TaskDialog } from "@/components/task-dialog";
 
-const EXPANDED_KEY = "tasknest.expanded";
+const EXPANDED_KEY = "nextonlist.expanded";
 
 function readExpanded(): string[] {
   if (typeof window === "undefined") return [];

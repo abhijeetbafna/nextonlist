@@ -73,7 +73,7 @@ export function EmptyState({ title, hint }: { title: string; hint?: string }) {
   );
 }
 
-export function TaskNestLogo({ className = "size-5" }: { className?: string }) {
+export function NextOnListLogo({ className = "size-5" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
@@ -84,12 +84,14 @@ export function TaskNestLogo({ className = "size-5" }: { className?: string }) {
       strokeLinejoin="round"
       className={className}
     >
-      <path d="M3.5 13.5C4.2 18 8 20.5 12 20.5C16 20.5 19.8 18 20.5 13.5" strokeWidth="2" />
-      <path d="M6 11.5C6.5 15 9 17 12 17C15 17 17.5 15 18 11.5" strokeWidth="1.75" strokeOpacity="0.8" />
-      <path d="M8.5 9L11 11.5L16 5.5" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <rect width="18" height="18" x="3" y="3" rx="4" strokeWidth="2" />
+      <path d="m8 11.5 2.5 2.5 5-5" strokeWidth="2.25" />
+      <line x1="8" y1="17" x2="16" y2="17" strokeWidth="2" strokeOpacity="0.75" />
     </svg>
   );
 }
+
+export const TaskNestLogo = NextOnListLogo;
 
 export function GoogleLogo({ className = "size-4" }: { className?: string }) {
   return (
