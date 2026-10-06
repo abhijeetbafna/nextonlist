@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { supabase } from "@/integrations/supabase/client";
-import { GoogleLogo, NextOnListLogo } from "@/components/bits";
+import { NextOnListLogo } from "@/components/bits";
 
 export const Route = createFileRoute("/auth")({
   head: () => ({
@@ -157,34 +157,6 @@ function AuthPage() {
     }
   }
 
-  async function google() {
-    try {
-      setBusy(true);
-      const redirectUrl = `${window.location.origin}/dashboard`;
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider: "google",
-        options: {
-          redirectTo: redirectUrl,
-          queryParams: {
-            access_type: "offline",
-            prompt: "consent",
-          },
-        },
-      });
-      if (error) {
-        if (error.message.includes("missing OAuth secret") || error.message.includes("Unsupported provider")) {
-          toast.error("Google sign-in is not configured yet. Please add Google Client ID & Secret in your Supabase Dashboard under Authentication -> Providers -> Google.");
-        } else {
-          toast.error("Google sign-in failed: " + error.message);
-        }
-      }
-    } catch (err) {
-      toast.error(err instanceof Error ? err.message : "Google sign-in failed");
-    } finally {
-      setBusy(false);
-    }
-  }
-
   return (
     <div className="grid min-h-screen lg:grid-cols-2">
       <div className="hidden flex-col justify-between gradient-primary p-12 text-primary-foreground lg:flex">
@@ -226,19 +198,6 @@ function AuthPage() {
                   ? "Enter your email to receive a password reset link."
                   : "Enter your new password below."}
           </p>
-
-          {mode !== "reset" && mode !== "update_password" && (
-            <>
-              <Button variant="outline" className="mt-6 w-full cursor-pointer flex items-center justify-center gap-2" onClick={google}>
-                <GoogleLogo className="size-4 shrink-0" />
-                <span>Continue with Google</span>
-              </Button>
-
-              <div className="my-5 flex items-center gap-3 text-xs text-muted-foreground">
-                <span className="h-px flex-1 bg-border" /> or <span className="h-px flex-1 bg-border" />
-              </div>
-            </>
-          )}
 
           <form className="mt-6 grid gap-4" onSubmit={submit}>
             {mode === "signup" && (
