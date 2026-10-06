@@ -36,9 +36,11 @@ function AuthPage() {
       }
     });
 
-    const { data: authListener } = supabase.auth.onAuthStateChange((event) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((event, session) => {
       if (event === "PASSWORD_RECOVERY") {
         setMode("update_password");
+      } else if (event === "SIGNED_IN" && session && mode !== "update_password") {
+        navigate({ to: "/dashboard", replace: true });
       }
     });
 
@@ -156,14 +158,30 @@ function AuthPage() {
   }
 
   async function google() {
-    const { error } = await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: window.location.origin,
-      },
-    });
-    if (error) {
-      toast.error("Google sign-in failed: " + error.message);
+    try {
+      setBusy(true);
+      const redirectUrl = `${window.location.origin}/dashboard`;
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+          redirectTo: redirectUrl,
+          queryParams: {
+            access_type: "offline",
+            prompt: "consent",
+          },
+        },
+      });
+      if (error) {
+        if (error.message.includes("missing OAuth secret") || error.message.includes("Unsupported provider")) {
+          toast.error("Google sign-in is not configured yet. Please add Google Client ID & Secret in your Supabase Dashboard under Authentication -> Providers -> Google.");
+        } else {
+          toast.error("Google sign-in failed: " + error.message);
+        }
+      }
+    } catch (err) {
+      toast.error(err instanceof Error ? err.message : "Google sign-in failed");
+    } finally {
+      setBusy(false);
     }
   }
 
